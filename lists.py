@@ -1,0 +1,20 @@
+'''new_list = ["dog", "cat", "mouse", "bird", "monkey"]
+print(new_list)'''
+class_list = ["Drew", "Jacob", "Brooke", "Skyler", "Khloe", "Jared", "Selina", "Bowen", "Alex", "Landen", "Josua"]
+print(class_list)
+class_list.append("Edna")
+class_list.append("Ed")
+print(class_list)
+kicked = class_list.pop()
+print(kicked, "was kicked out of the class")
+print("The people who are left are", class_list)
+kicked_2 = class_list.pop(1)
+print(kicked_2, "was kicked out of the class")
+print("The people who are left are", class_list)
+kicked_3 = class_list.pop(9)
+print(kicked_3, "was shamefully kicked out of the class")
+print("The people who are left are", class_list)
+index_number = class_list.index("Brooke")
+print(index_number)
+class_list.pop(index_number)
+print(class_list)
