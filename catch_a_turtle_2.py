@@ -12,18 +12,17 @@ shape = "turtle"
 color = "Green"
 speed = 0
 score = 1
-size_list = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3]
-size_list_copy = []
+size_list = []
 font_setup = ("Arial", 20, "normal")
 time_keeper = 30
 timer_interval = 1000
 time_up = False 
-size_list_copy = size_list
+
 
 #-----initialize turtle-----
 jumpy = trtl.Turtle()
 jumpy.shape(shape)
-jumpy.shapesize(size_list.pop())
+jumpy.shapesize(3)
 jumpy.color(color)
 jumpy.penup()
 jumpy.speed(speed)
@@ -43,7 +42,16 @@ timer.goto(0, 260)
 wn = trtl.Screen()
 
 
-#-----game functions--------
+#-----game functions-------
+def list_maker():
+    global size_list
+    num = 0.1
+    size_list = []
+    for i in range (30):
+        size_list.append(num)
+        num += 0.1
+        i += 1
+
 def start_message():
     start = "Click turtle to start"
     writer.write(start, font=font_setup)
@@ -61,7 +69,7 @@ def jumpy_clicked(x, y):
     global time_up
     global size_list
     if (not time_up):
-        size = size_list_copy.pop()
+        size = size_list.pop()
         jumpy.shapesize(size)
         increase_score()
         change_pos()
@@ -112,6 +120,7 @@ def timer_countdown():
 
 
 #-----events----------------
+list_maker()
 start_message()
 jumpy.onclick(game)
 wn.mainloop()
